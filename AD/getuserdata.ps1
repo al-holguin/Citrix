@@ -31,4 +31,12 @@ $userlist | foreeach {division=Get-ADUser -identity $_ - properties company-divi
 
   #write data
   add-content $output "$_,$division,$contractor,$externalsegment,$business,$internalsegment,$maildomain"
-  
+  #initialize variables again
+  $division=""
+  $contractor=""
+  $externalsegment=""
+  $business=""
+  $internalsegment=""
+  $mgmtmail=""
+  $maildomain=""
+}
