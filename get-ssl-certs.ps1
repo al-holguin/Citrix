@@ -94,8 +94,8 @@ foreach($objServer in $arrServers) {
     switch($issuerLong) {
                     {$issuerLong -match 'comodo'}               { $strIssuer = "Comodo" }
                     {$issuerLong -match 'verisign'}             { $strIssuer = "VeriSign" }
-                {$issuerLong -match 'UnitedHealth Group'}       { $strIssuer = "UHG" }
-                {$issuerLong -match 'OptumInternalIssuingCA2'}      { $strIssuer = "OptumInternalCA2" }
+                {$issuerLong -match 'Company Internal'}       { $strIssuer = "INT" }
+                {$issuerLong -match 'CompanyInternalIssuingCA2'}      { $strIssuer = "CompanyInternalCA2" }
                 {$issuerLong -match $ServerName }           { $strIssuer = "Self Signed" }
                 default                         { $strIssuer = $issuerLong }
     }
