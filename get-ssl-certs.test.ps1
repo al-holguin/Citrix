@@ -83,8 +83,8 @@ foreach ($objServer in $arrServers) {
         switch -Regex ($issuerLong) {
             'comodo'   { $strIssuer = "Comodo" }
             'verisign' { $strIssuer = "VeriSign" }
-            'UnitedHealth Group' { $strIssuer = "UHG" }
-            'OptumInternalIssuingCA2' { $strIssuer = "OptumInternalCA2" }
+            'Company Internal' { $strIssuer = "INT" }
+            'CompanyInternalIssuingCA2' { $strIssuer = "CompanyInternalCA2" }
             $ServerName { $strIssuer = "Self Signed" }
             default { $strIssuer = $issuerLong }
         }
