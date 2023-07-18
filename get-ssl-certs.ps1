@@ -43,7 +43,7 @@ $HtmlHead = '<style>
         padding:          5px;
         border-style:     solid;
         border-color:     black;
-        background-color: #98C6F3;
+        background-color: #9932CC;
     }
  
     td {
@@ -60,7 +60,7 @@ $HtmlHead = '<style>
 </style>'
  
 $arrServers = Import-Csv $ServersCSV
-#$arrServers
+
 foreach($objServer in $arrServers) {
     $issuerLong=""
     $certeffective=""
@@ -73,7 +73,7 @@ foreach($objServer in $arrServers) {
     [Net.ServicePointManager]::ServerCertificateValidationCallback = { $true }
  
     $servername=$objServer.ServerName
-    $url = https:// + $servername +"/"
+    $url = "https://" + $servername +"/"
  
     $req = ""
     $output = ""
@@ -125,4 +125,4 @@ foreach($objServer in $arrServers) {
    
 }
  
-import-csv $csvfile | Sort-Object DaysToExpire,Servername |convertto-html -Head $HtmlHead | out-file "$outfile"
+import-csv $csvfile | Sort-Object {[int]$_.DaysToExpire}, Servername |convertto-html -Head $HtmlHead | out-file "$outfile"
